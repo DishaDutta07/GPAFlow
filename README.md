@@ -8,11 +8,12 @@ Built with **React 18, Tailwind CSS, Framer Motion, and Node.js/Express**, GPAFl
 
 ## 🌟 Key Features
 
-### 1. 🎨 Modern Aesthetic Design & UI/UX
-- **Dual Themes**: Polished Dark Mode (deep slate backdrop with vibrant indigo/violet accents and glowing effects) & Clean Light Mode.
+### 1. 🎨 Modern Aesthetic Design & Mobile UI/UX
+- **Theme**: Luxury Dark Maroon & Obsidian Black theme with glowing ambient lighting, ruby accents, and crisp light mode.
+- **Mobile-First App Interface**: Native-feel fixed bottom navigation bar (Calc, Target, History, Scale, Export), touch-optimized course cards, and responsive slide-up bottom sheets.
 - **Glassmorphism**: Backdrop blur cards, smooth box shadows, and `rounded-2xl` corners.
-- **Interactive Visual Gauge**: Animated SVG radial gauge ring dynamically changes color based on GPA standing (Purple, Indigo, Emerald, Amber, Rose) with celebratory confetti.
-- **Fully Responsive**: Mobile-first layout optimized for smartphones, tablets, laptops, and ultra-wide displays.
+- **Interactive Visual Gauge**: Animated SVG radial gauge ring dynamically changes color based on GPA standing (Ruby Crimson, Rose Gold, Emerald, Amber, Rose) with celebratory confetti.
+- **Fully Responsive**: Optimized for phones, tablets, laptops, and wide screens.
 
 ### 2. 🧮 Comprehensive Calculation Engine
 - **Semester GPA Formula**:
