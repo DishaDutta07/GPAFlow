@@ -1,32 +1,39 @@
-# Stage 1: Build the React frontend
-FROM node:20-alpine AS build-frontend
-WORKDIR /app/frontend
+# Multi-stage Build for GPAFlow Full-Stack App
+FROM node:20-alpine AS builder
 
-COPY frontend/package*.json ./
-RUN npm install
-
-COPY frontend/ ./
-RUN npm run build
-
-# Stage 2: Production Server
-FROM node:20-alpine AS production
 WORKDIR /app
 
-# Copy backend dependencies and files
+# Copy package configs
+COPY package*.json ./
+COPY frontend/package*.json ./frontend/
 COPY backend/package*.json ./backend/
-WORKDIR /app/backend
-RUN npm install --omit=dev
 
-COPY backend/ ./
+# Install dependencies
+RUN npm install
+RUN cd frontend && npm install
+RUN cd backend && npm install
 
-# Copy built static frontend files into backend dist
-COPY --from=build-frontend /app/frontend/dist /app/frontend/dist
+# Copy source files
+COPY . .
 
-# Expose port and configure environment
-ENV PORT=5000
+# Build frontend static bundle
+RUN cd frontend && npm run build
+
+# Production image
+FROM node:20-alpine
+
+WORKDIR /app
+
 ENV NODE_ENV=production
+ENV PORT=5000
+
+# Copy root and backend
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/backend ./backend
+COPY --from=builder /app/frontend/dist ./frontend/dist
+
 EXPOSE 5000
 
 VOLUME ["/app/backend/data"]
 
-CMD ["node", "src/server.js"]
+CMD ["node", "backend/src/server.js"]
