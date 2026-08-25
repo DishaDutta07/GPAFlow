@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: rgba(226, 232, 240, 0.8);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .dark * {
+    border-color: rgba(76, 16, 32, 0.6);
+  }
+  
+  html, body {
+    touch-action: manipulation;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Luxury Dark Maroon & Onyx Black Glassmorphism */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.dark .glass-panel {
+  background: rgba(14, 5, 9, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(136, 19, 55, 0.4);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.75);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(241, 245, 249, 1);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-card {
+  background: rgba(24, 8, 15, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(159, 18, 57, 0.32);
+  box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(190, 18, 60, 0.14);
+}
+
+/* Custom Scrollbar in Dark Maroon */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(190, 18, 60, 0.35);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(225, 29, 78, 0.65);
+}
+
+/* Ambient glow accents */
+.glow-maroon {
+  box-shadow: 0 0 50px -10px rgba(190, 18, 60, 0.35);
+}
+
+.glow-purple {
+  box-shadow: 0 0 50px -10px rgba(159, 18, 57, 0.3);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.25);
+}
+
+/* Number input arrow removal */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Mobile Safe Areas */
+.safe-pb {
+  padding-bottom: max(5rem, calc(4.5rem + env(safe-area-inset-bottom)));
+}
