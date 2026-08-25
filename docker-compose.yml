@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  gpaflow:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gpaflow_app
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - NODE_ENV=production
+    volumes:
+      - gpaflow_data:/app/backend/data
+
+volumes:
+  gpaflow_data:
+    driver: local

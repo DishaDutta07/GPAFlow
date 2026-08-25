@@ -1,0 +1,31 @@
+{
+  "name": "gpaflow-root",
+  "version": "1.0.0",
+  "description": "GPAFlow - Modern Full-Stack GPA & CGPA Calculator with Analytics & Transcript Export",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "install:all": "npm install && npm install --prefix backend && npm install --prefix frontend",
+    "build": "npm run build --prefix frontend",
+    "start": "node backend/src/server.js",
+    "server": "npm start --prefix backend",
+    "client": "npm run dev --prefix frontend",
+    "push": "node git-push.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "keywords": [
+    "gpa-calculator",
+    "cgpa-calculator",
+    "react",
+    "express",
+    "tailwind",
+    "academic-transcript"
+  ],
+  "author": "GPAFlow",
+  "license": "MIT",
+  "dependencies": {
+    "isomorphic-git": "^1.41.9"
+  }
+}
